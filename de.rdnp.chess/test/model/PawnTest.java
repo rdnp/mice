@@ -52,8 +52,7 @@ public class PawnTest {
 		int i;
 		for (i = 0; onePlies[i] != null; i++)
 			System.out.println(onePlies[i]);
-		assertEquals(0, i);
-		
+		assertEquals(1, i);
 	}
 	
 }

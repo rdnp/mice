@@ -6,6 +6,7 @@ package model;
 
 import static org.junit.Assert.*;
 
+import game.Game;
 import game.Player;
 
 import org.junit.After;
@@ -44,6 +45,7 @@ public class PositionTreeDataTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		new Game();
 		startPosition = TestPositions.createStartPosition();
 		testPosition1 = TestPositions.createPosition(
 				TestPositionConstants.TEST_POSITION_1);

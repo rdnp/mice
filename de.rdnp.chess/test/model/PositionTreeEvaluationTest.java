@@ -2,8 +2,10 @@ package model;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import game.Game;
 import game.Player;
 
 
@@ -18,8 +20,9 @@ public class PositionTreeEvaluationTest {
 	{
 		Position testPosition = TestPositions.createPosition(
 				TestPositionConstants.TEST_POSITION_3);
+		new Game().setPosition(testPosition);
 		PositionTree subject = new PositionTree(Player.BLACK, testPosition, 
-				testPosition.getFigureAt(new ChessLocation(4, 6)), 
+				testPosition.getFigureAt(new ChessLocation(5, 6)), 
 				TestConstants.TEST_POSITION_TREE_DEPTH);
 		int maximumAdvantage = Integer.MIN_VALUE;
 		Position bestResult = null;
@@ -33,8 +36,8 @@ public class PositionTreeEvaluationTest {
 		}
 		assertTrue(
 				bestResult.getFigureLocation(testPosition.getFigureAt(
-						new ChessLocation(4, 6))).equals(
-								new ChessLocation(4, 5))
+						new ChessLocation(5, 6))).equals(
+								new ChessLocation(5, 5))
 						);
 	}
 	
@@ -48,6 +51,7 @@ public class PositionTreeEvaluationTest {
 	{
 		Position testPosition = TestPositions.createPosition(
 				TestPositionConstants.TEST_POSITION_4);
+		new Game().setPosition(testPosition);
 		PositionTree subject = new PositionTree(Player.WHITE, testPosition, 
 				testPosition.getFigureAt(new ChessLocation(3, 3)), 
 				TestConstants.TEST_POSITION_TREE_DEPTH);
@@ -80,6 +84,7 @@ public class PositionTreeEvaluationTest {
 	{
 		Position testPosition = TestPositions.createPosition(
 				TestPositionConstants.TEST_POSITION_5);
+		new Game().setPosition(testPosition);
 		PositionTree subject = new PositionTree(Player.BLACK, testPosition, 
 				testPosition.getFigureAt(new ChessLocation(1, 5)), 
 				TestConstants.TEST_POSITION_TREE_DEPTH);
