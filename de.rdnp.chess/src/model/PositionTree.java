@@ -5,6 +5,7 @@ import game.Player;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
@@ -216,10 +217,15 @@ public class PositionTree {
 				// such as chess .. so it needs to be checked if the move is at all
 				// legal.
 				for (int i = 0; nextPositions[i] != null; i++) {
-					if (movePlayer.chess(nextPositions[i])) {
-						// this move is illegal, so assign the next one...
-						nextPositions[i] = i < nextPositions.length - 1 ? 
-								nextPositions[i + 1] : null;
+					if (movePlayer.chess(nextPositions[i])) 
+						// this move is illegal
+						nextPositions[i] = null;
+				}
+				// now filter out nulled out moves
+				int newIndex = 0;
+				for (int i = 0; i < nextPositions.length; i++) {
+					if (nextPositions[i] != null) {
+						nextPositions[newIndex++] = nextPositions[i];
 					}
 				}
 				if (nextPositions[0] == null)
